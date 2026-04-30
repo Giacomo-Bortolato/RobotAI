@@ -2,12 +2,12 @@ import requests
 import socket
 import sys
 import re
-from python.RegistrazionePyaudio import Registra
+from RegistrazionePyaudio import Registra
  
 urlOllama= "http://192.168.1.33:11434/api/generate"
 
- 
 
+    
 def markdown_to_plain_text(md_text: str) -> str:#fatto da chatgpt 
     text = md_text
  
@@ -57,9 +57,8 @@ def invio(lenAudio,ListaFrames,s):
     
     data=s.recv(4096)
     response=data.decode()
-    dataFiltrata=markdown_to_plain_text(response)
     print(f"Trascrizione: {response}")
-    return dataFiltrata
+    return response
 def connessioneServer(indirizzo_server,lenAudio,ListaFrames):
     try:
         s=socket.socket()
@@ -71,7 +70,12 @@ def connessioneServer(indirizzo_server,lenAudio,ListaFrames):
         sys.exit()
     return invio(lenAudio,ListaFrames,s)
 def richiestaWhisper(data):
-    return connessioneServer(("192.168.1.33",15000),data[0],data[1])
+    response=connessioneServer(("192.168.1.33",15000),data[0],data[1])
+    if response[0] == '{':
+        return ("Action",response)
+    else:
+        dataFiltrata=markdown_to_plain_text(response)
+        return ("Message",dataFiltrata)
 
     
 def richiestaOllama(prompt,model):
