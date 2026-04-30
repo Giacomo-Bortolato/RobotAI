@@ -1,0 +1,7 @@
+requests
+PyAudio
+edge-impulse-linux
+
+# Runtime note:
+# `arduino.app_utils` may require an Arduino-specific Python environment
+# on the target board and might not be installable from PyPI alone.

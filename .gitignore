@@ -1,0 +1,25 @@
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+.Python
+.venv/
+venv/
+env/
+ENV/
+
+# Audio output and recordings
+*.wav
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Arduino build artifacts
+*.ino.bin
+*.hex
+build/
+sketch/build/
