@@ -41,6 +41,38 @@ void IndietroMotori(int velocità)
   analogWrite(PIN_PWM_M1,0);
   analogWrite(PIN_PWM_M2,0);
 }
+void DestraMotori(int velocità)
+{
+  digitalWrite(PIN_AVANTI_M1,HIGH);
+  digitalWrite(PIN_AVANTI_M2,LOW);
+  digitalWrite(PIN_INDIETRO_M1,LOW);
+  digitalWrite(PIN_INDIETRO_M2,HIGH);
+  analogWrite(PIN_PWM_M1,velocità);
+  analogWrite(PIN_PWM_M2,velocità);
+  delay(2000);
+  digitalWrite(PIN_AVANTI_M1,LOW);
+  digitalWrite(PIN_AVANTI_M2,LOW);
+  digitalWrite(PIN_INDIETRO_M1,LOW);
+  digitalWrite(PIN_INDIETRO_M2,LOW);
+  analogWrite(PIN_PWM_M1,0);
+  analogWrite(PIN_PWM_M2,0);
+}
+void SinistraMotori(int velocità)
+{
+  digitalWrite(PIN_AVANTI_M1,LOW);
+  digitalWrite(PIN_AVANTI_M2,HIGH);
+  digitalWrite(PIN_INDIETRO_M1,HIGH);
+  digitalWrite(PIN_INDIETRO_M2,LOW);
+  analogWrite(PIN_PWM_M1,velocità);
+  analogWrite(PIN_PWM_M2,velocità);
+  delay(2000);
+  digitalWrite(PIN_AVANTI_M1,LOW);
+  digitalWrite(PIN_AVANTI_M2,LOW);
+  digitalWrite(PIN_INDIETRO_M1,LOW);
+  digitalWrite(PIN_INDIETRO_M2,LOW);
+  analogWrite(PIN_PWM_M1,0);
+  analogWrite(PIN_PWM_M2,0);
+}
 
 void setup() {
   pinMode(PIN_AVANTI_M1,OUTPUT);
