@@ -9,7 +9,7 @@
 #define PIN_PWM_M1 9
 #define PIN_PWM_M2 10
 
-void AvantiMotori(int velocità)
+void AvantiMotori(int velocità,int durata_ms)
 {
   digitalWrite(PIN_AVANTI_M1,HIGH);
   digitalWrite(PIN_AVANTI_M2,HIGH);
@@ -17,7 +17,7 @@ void AvantiMotori(int velocità)
   digitalWrite(PIN_INDIETRO_M2,LOW);
   analogWrite(PIN_PWM_M1,velocità);
   analogWrite(PIN_PWM_M2,velocità);
-  delay(2000);
+  delay(durata_ms);
   digitalWrite(PIN_AVANTI_M1,LOW);
   digitalWrite(PIN_AVANTI_M2,LOW);
   digitalWrite(PIN_INDIETRO_M1,LOW);
@@ -25,7 +25,7 @@ void AvantiMotori(int velocità)
   analogWrite(PIN_PWM_M1,0);
   analogWrite(PIN_PWM_M2,0);
 }
-void IndietroMotori(int velocità)
+void IndietroMotori(int velocità,int durata_ms)
 {
   digitalWrite(PIN_AVANTI_M1,LOW);
   digitalWrite(PIN_AVANTI_M2,LOW);
@@ -33,7 +33,7 @@ void IndietroMotori(int velocità)
   digitalWrite(PIN_INDIETRO_M2,HIGH);
   analogWrite(PIN_PWM_M1,velocità);
   analogWrite(PIN_PWM_M2,velocità);
-  delay(2000);
+  delay(durata_ms);
   digitalWrite(PIN_AVANTI_M1,LOW);
   digitalWrite(PIN_AVANTI_M2,LOW);
   digitalWrite(PIN_INDIETRO_M1,LOW);
@@ -41,7 +41,7 @@ void IndietroMotori(int velocità)
   analogWrite(PIN_PWM_M1,0);
   analogWrite(PIN_PWM_M2,0);
 }
-void DestraMotori(int velocità)
+void DestraMotori(int velocità,int durata_ms)
 {
   digitalWrite(PIN_AVANTI_M1,HIGH);
   digitalWrite(PIN_AVANTI_M2,LOW);
@@ -49,7 +49,7 @@ void DestraMotori(int velocità)
   digitalWrite(PIN_INDIETRO_M2,HIGH);
   analogWrite(PIN_PWM_M1,velocità);
   analogWrite(PIN_PWM_M2,velocità);
-  delay(2000);
+  delay(durata_ms);
   digitalWrite(PIN_AVANTI_M1,LOW);
   digitalWrite(PIN_AVANTI_M2,LOW);
   digitalWrite(PIN_INDIETRO_M1,LOW);
@@ -57,7 +57,7 @@ void DestraMotori(int velocità)
   analogWrite(PIN_PWM_M1,0);
   analogWrite(PIN_PWM_M2,0);
 }
-void SinistraMotori(int velocità)
+void SinistraMotori(int velocità,int durata_ms)
 {
   digitalWrite(PIN_AVANTI_M1,LOW);
   digitalWrite(PIN_AVANTI_M2,HIGH);
@@ -65,7 +65,7 @@ void SinistraMotori(int velocità)
   digitalWrite(PIN_INDIETRO_M2,LOW);
   analogWrite(PIN_PWM_M1,velocità);
   analogWrite(PIN_PWM_M2,velocità);
-  delay(2000);
+  delay(durata_ms);
   digitalWrite(PIN_AVANTI_M1,LOW);
   digitalWrite(PIN_AVANTI_M2,LOW);
   digitalWrite(PIN_INDIETRO_M1,LOW);

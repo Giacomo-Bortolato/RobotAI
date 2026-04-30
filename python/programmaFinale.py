@@ -9,7 +9,7 @@ MODELPATH = "/home/arduino/.ei-linux-runner/models/929457/v6-quantized-runner-li
 parametriMain=[MODELPATH,"0"]
 def parla(testo):
     os.system(f'pico2wave -l it-IT -w output.wav "{testo}" && aplay output.wav')
-def estrai_json(testo):
+def estrai_json(testo):#fatto da chatgpt
     if not isinstance(testo, str):
         return testo
 
@@ -41,10 +41,10 @@ def loop():
             print("Action rilevata")
             action = estrai_json(whisperResult[1])
             if action["action"] == "forward":
-                Bridge.call("AvantiMotori",255)
+                Bridge.call("AvantiMotori",int(action["speed"]),int(action["duration_ms"]))
                 print("Mi muovo in avanti")
             elif action["action"] == "backward":
-                Bridge.call("IndietroMotori",255)
+                Bridge.call("IndietroMotori",int(action["speed"]),int(action["duration_ms"]))
                 print("Mi muovo indietro")
 
 
