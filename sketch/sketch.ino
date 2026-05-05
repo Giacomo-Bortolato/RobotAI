@@ -41,7 +41,7 @@ void IndietroMotori(int velocità,int durata_ms)
   analogWrite(PIN_PWM_M1,0);
   analogWrite(PIN_PWM_M2,0);
 }
-void DestraMotori(int velocità,int durata_ms)
+void SinistraMotori(int velocità,int durata_ms)
 {
   digitalWrite(PIN_AVANTI_M1,HIGH);
   digitalWrite(PIN_AVANTI_M2,LOW);
@@ -57,7 +57,7 @@ void DestraMotori(int velocità,int durata_ms)
   analogWrite(PIN_PWM_M1,0);
   analogWrite(PIN_PWM_M2,0);
 }
-void SinistraMotori(int velocità,int durata_ms)
+void DestraMotori(int velocità,int durata_ms)
 {
   digitalWrite(PIN_AVANTI_M1,LOW);
   digitalWrite(PIN_AVANTI_M2,HIGH);
@@ -74,6 +74,7 @@ void SinistraMotori(int velocità,int durata_ms)
   analogWrite(PIN_PWM_M2,0);
 }
 
+
 void setup() {
   pinMode(PIN_AVANTI_M1,OUTPUT);
   pinMode(PIN_AVANTI_M2,OUTPUT);
@@ -84,6 +85,8 @@ void setup() {
   Bridge.begin();
   Bridge.provide("AvantiMotori",AvantiMotori);
   Bridge.provide("IndietroMotori",IndietroMotori);
+  Bridge.provide("DestraMotori",DestraMotori);
+  Bridge.provide("SinistraMotori",SinistraMotori);
   
 }
 

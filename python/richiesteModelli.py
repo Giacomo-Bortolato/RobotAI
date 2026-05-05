@@ -73,6 +73,8 @@ def richiestaWhisper(data):
     response=connessioneServer(("192.168.1.33",15000),data[0],data[1])
     if response[0] == '{':
         return ("Action",response)
+    elif response[0] == '[':
+        return ("ActionList",response)
     else:
         dataFiltrata=markdown_to_plain_text(response)
         return ("Message",dataFiltrata)
