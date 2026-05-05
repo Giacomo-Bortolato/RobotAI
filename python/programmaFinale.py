@@ -78,19 +78,19 @@ def loop():
                 if action["action"] == "forward":
                     Bridge.call("AvantiMotori",int(action["speed"]),int(action["duration_ms"]))
                     print("Mi muovo in avanti")
-                    time.sleep(int(action["duration_ms"])/1000)
+                   
                 elif action["action"] == "backward":
                     Bridge.call("IndietroMotori",int(action["speed"]),int(action["duration_ms"]))
                     print("Mi muovo indietro")
-                    time.sleep(int(action["duration_ms"])/1000)
+                    
                 elif action["action"] == "left":
                     Bridge.call("SinistraMotori",int(action["speed"]),int(action["duration_ms"]))
                     print("Mi muovo a sinistra")
-                    time.sleep(int(action["duration_ms"])/1000)
+                    
                 elif action["action"] == "right":
                     Bridge.call("DestraMotori",int(action["speed"]),int(action["duration_ms"]))
                     print("Mi muovo a destra")
-                    time.sleep(int(action["duration_ms"])/1000)
+                    
 
                 
 
